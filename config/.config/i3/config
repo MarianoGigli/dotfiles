@@ -224,7 +224,7 @@ bar {
 }
 
 # notify daemon
-exec --no-startup-id dunst -config ~/.config/i3/dunstrc
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
 # restore wallpaper
 exec --no-startup-id nitrogen --restore

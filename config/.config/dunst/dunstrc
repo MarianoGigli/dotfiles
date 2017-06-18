@@ -32,7 +32,7 @@
 [shortcuts]
     close = ctrl+space
     close_all = ctrl+shift+space
-    history = ctrl+ccedilla
+    #history = ctrl+ccedilla
     context = ctrl+shift+period
 
 [urgency_low]
