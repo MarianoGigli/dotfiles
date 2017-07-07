@@ -1,18 +1,7 @@
 pcm.!default {
   type plug
   slave {
-    pcm "hw:2,0"
-  }
-}
-ctl.!default {
-  type hw
-  card 2
-}
-
-pcm.!default {
-  type plug
-  slave {
-    pcm "hw:1,0"
+    pcm "hw:0,0"
   }
 }
 ctl.!default {
