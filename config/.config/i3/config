@@ -143,8 +143,9 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # lock computer
-set $locker "i3-msg workspace $workspace0 && i3lock -i /home/mariano/Pictures/tux-commands.png -t && sleep 1"
+set $locker "/usr/local/bin/lock.sh"
 bindsym $mod+Control+l exec $locker
+exec xautolock -time 1 -locker $locker &
 
 # poweroff
 set $poweroff "sudo /sbin/poweroff"
@@ -231,5 +232,8 @@ exec --no-startup-id nitrogen --restore
 
 # set volumen icon
 exec --no-startup-id volumeicon
-# exec --no-startup-id mate-volume-control-applet
+exec --no-startup-id mate-settings-daemon
+exec --no-startup-id mate-volume-control-applet
+exec --no-startup-id nm-applet
 exec --no-startup-id mate-power-manager
+

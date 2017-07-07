@@ -20,4 +20,4 @@ if [ -z "$DESKTOP_SESSION" -a -x /usr/bin/ck-launch-session ]; then
 else
     exec /usr/bin/i3
 fi
-#exec mate-session
+# exec mate-session
