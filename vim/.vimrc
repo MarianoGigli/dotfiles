@@ -4,6 +4,8 @@ set nocompatible
 syntax enable
 filetype plugin on
 
+set t_Co=256
+
 set number
 set numberwidth=5
 set relativenumber
