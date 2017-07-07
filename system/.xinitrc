@@ -11,7 +11,8 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 [ -f $userresources ] && /usr/bin/xrdb -merge $userresources
 [ -f $usermodmap ] && /usr/bin/xmodmap $usermodmap
 
-setxkbmap es
+#setxkbmap es
+setxkbmap -model latitude -layout latam
 
 # Start i3
 if [ -z "$DESKTOP_SESSION" -a -x /usr/bin/ck-launch-session ]; then
