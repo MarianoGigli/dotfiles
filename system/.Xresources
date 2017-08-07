@@ -1,6 +1,7 @@
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
+rofi.terminal: mate-terminal
 rofi.color-enabled: true
 rofi.font: System San Francisco Display Regular 18
 rofi.lines: 3

@@ -144,8 +144,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # lock computer
 set $locker "/usr/local/bin/lock.sh"
-bindsym $mod+Control+l exec $locker
-exec xautolock -time 1 -locker $locker &
+#bindsym $mod+Control+l exec $locker
+bindsym $mod+Control+l exec xautolock -time 1 -locker $locker &
 
 # poweroff
 set $poweroff "sudo /sbin/poweroff"
@@ -231,8 +231,7 @@ exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id nitrogen --restore
 
 # set volumen icon
-exec --no-startup-id volumeicon
-exec --no-startup-id mate-settings-daemon
+# exec --no-startup-id volumeicon
 exec --no-startup-id mate-volume-control-applet
 exec --no-startup-id nm-applet
 exec --no-startup-id mate-power-manager
