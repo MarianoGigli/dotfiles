@@ -1,19 +1,15 @@
-" be iMproved, required
-set nocompatible
+" be iMproved, required set nocompatible
 " enable syntax and plugins (for netrw)
 syntax enable
 filetype plugin on
 
 set t_Co=256
-
 set number
 set numberwidth=5
 set relativenumber
-set pastetoggle=<F4>
 " Make it obvious where 80 characters is
 set textwidth=80
 set colorcolumn=80
-highlight ColorColumn ctermbg=235
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 set nobackup
@@ -47,7 +43,6 @@ set wildmenu
 " THINGS TO CONSIDER:
 " - :b lets you autocomplete any open buffer
 
-
 " TAG JUMPING:
 " Create the `tags` file (may need to install ctags first)
 command! MakeTags !ctags -R --exclude=@/home/mariano/.ctagsexclude .
@@ -70,28 +65,18 @@ command! MakeTags !ctags -R --exclude=@/home/mariano/.ctagsexclude .
 " - Use ^n and ^p to go back and forth in the suggestion list
 
 call plug#begin('~/.vim/plugged')
-
 " Make sure you use single quotes
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'nvie/vim-flake8'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'vim-scripts/argtextobj.vim'
-Plug 'ervandew/supertab'
-Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/xoria256.vim'
-Plug 'michaeljsmith/vim-indent-object'
+Plug 'itchyny/lightline.vim'
+Plug 'ekalinin/Dockerfile.vim'
 call plug#end()
-
-" airline config
-set laststatus=2
-let g:airline_theme='distinguished'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
 
 colorscheme xoria256
 highlight ColorColumn ctermbg=235
+
+" lightline config
+set laststatus=2
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
