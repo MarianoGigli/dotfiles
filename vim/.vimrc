@@ -2,7 +2,8 @@
 " enable syntax and plugins (for netrw)
 syntax enable
 filetype plugin on
-
+filetype indent on
+set lazyredraw
 set t_Co=256
 set number
 set numberwidth=5
@@ -10,6 +11,11 @@ set relativenumber
 " Make it obvious where 80 characters is
 set textwidth=80
 set colorcolumn=80
+
+set tabstop=4
+set softtabstop=4
+set expandtab
+
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 set nobackup
