@@ -231,8 +231,12 @@ exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id nitrogen --restore
 
 # set volumen icon
-# exec --no-startup-id volumeicon
-exec --no-startup-id mate-volume-control-applet
+exec --no-startup-id volumeicon
+# exec --no-startup-id mate-volume-control-applet
 exec --no-startup-id nm-applet
 exec --no-startup-id mate-power-manager
 
+
+bindsym $mod+shift+bracketright move workspace to output right
+bindsym $mod+shift+bracketleft move workspace to output left
+exec --no-startup-id xrandr | grep -q HDMI1 && xrandr --output eDP1 --auto --output HDMI1 --auto --left-of eDP1

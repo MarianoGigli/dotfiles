@@ -84,5 +84,5 @@ highlight ColorColumn ctermbg=235
 set laststatus=2
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'seoul256',
       \ }
