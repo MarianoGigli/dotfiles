@@ -232,7 +232,6 @@ exec --no-startup-id nitrogen --restore
 
 # set volumen icon
 exec --no-startup-id volumeicon
-# exec --no-startup-id mate-volume-control-applet
 exec --no-startup-id nm-applet
 exec --no-startup-id mate-power-manager
 
