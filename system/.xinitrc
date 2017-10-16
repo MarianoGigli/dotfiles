@@ -13,7 +13,6 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 
 #setxkbmap es
 setxkbmap -model latitude -layout latam
-start-pulseaudio-x11 &
 
 # Start i3
 if [ -z "$DESKTOP_SESSION" -a -x /usr/bin/ck-launch-session ]; then
@@ -21,4 +20,3 @@ if [ -z "$DESKTOP_SESSION" -a -x /usr/bin/ck-launch-session ]; then
 else
     exec /usr/bin/i3
 fi
-# exec mate-session

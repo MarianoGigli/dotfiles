@@ -8,6 +8,7 @@ PS1='[\u@\h \W]\$ '
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="&:?:?[ \t]*:??[ \t]:su*:sudo*:[bf]g*:exit:*-h:*--help:man*:[ \t]*"
 PAGER=less
+EDITOR=vim
 
 #. ~/.bash_prompt
  if [ "$TERM" != "linux" ]; then
