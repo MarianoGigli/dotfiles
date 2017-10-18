@@ -145,8 +145,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # lock computer
 set $locker "/usr/local/bin/lock.sh"
-#bindsym $mod+Control+l exec $locker
-bindsym $mod+Control+l exec xautolock -time 1 -locker $locker &
+bindsym $mod+Control+l exec $locker
+# bindsym $mod+Control+l exec xautolock -time 1 -locker $locker &
 
 # poweroff
 set $poweroff "sudo /sbin/poweroff"
