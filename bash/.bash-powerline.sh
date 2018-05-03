@@ -128,6 +128,14 @@ __powerline() {
         printf " $GIT_BRANCH_SYMBOL$branch$marks "
     }
 
+    # Virtual Env
+    if [[ $VIRTUAL_ENV != "" ]]
+    then
+        VENV=" ${FG_ORANGE}(${VIRTUAL_ENV##*/}) $RESET\n"
+    else
+        VENV=''
+    fi
+
     ps1() {
         # Check the exit code of the previous command and display different
         # colors in the prompt accordingly. 
@@ -137,7 +145,8 @@ __powerline() {
             local BG_EXIT="$BG_RED"
         fi
 
-        PS1="$BG_BASE1$FG_BASE3 \u@\h [\w] $RESET"
+        PS1="$VENV"
+        PS1+="$BG_BASE1$FG_BASE3 \u@\h [\w] $RESET"
         # Bash by default expands the content of PS1 unless promptvars is disabled.
         # We must use another layer of reference to prevent expanding any user
         # provided strings, which would cause security issues.

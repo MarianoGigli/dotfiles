@@ -74,6 +74,9 @@ bindsym $mod+h split h
 # split in vertical orientation
 bindsym $mod+v split v
 
+# split toggle
+# bindsym $mod+t split t
+
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
@@ -146,7 +149,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # lock computer
 set $locker "/usr/local/bin/lock.sh"
 bindsym $mod+Control+l exec $locker
-# bindsym $mod+Control+l exec xautolock -time 1 -locker $locker &
 
 # poweroff
 set $poweroff "sudo /sbin/poweroff"
@@ -236,7 +238,12 @@ exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
 exec --no-startup-id mate-power-manager
 
+bindsym $mod+p exec --no-startup-id spt
 
-bindsym $mod+shift+bracketright move workspace to output right
-bindsym $mod+shift+bracketleft move workspace to output left
-exec --no-startup-id xrandr | grep -q HDMI1 && xrandr --output eDP1 --auto --output HDMI1 --auto --left-of eDP1
+# toggle workspace between two outputs
+bindsym $mod+x move workspace to output up
+
+# toggle container between two outputs
+bindsym $mod+Ctrl+Up move container to output up
+bindsym $mod+Ctrl+Down move container to output down
+exec --no-startup-id xrandr | grep -q HDMI1 && xrandr --output eDP1 --auto --primary --output HDMI1 --auto --above eDP1

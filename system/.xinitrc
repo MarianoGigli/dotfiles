@@ -14,6 +14,9 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 #setxkbmap es
 setxkbmap -model latitude -layout latam
 
+# start daemon for urxvt
+urxvtd --quiet --opendisplay --fork &
+
 # Start i3
 if [ -z "$DESKTOP_SESSION" -a -x /usr/bin/ck-launch-session ]; then
     exec ck-launch-session dbus-launch --exit-with-session /usr/bin/i3

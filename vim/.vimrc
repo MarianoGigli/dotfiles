@@ -7,7 +7,7 @@ set lazyredraw
 set t_Co=256
 set number
 set numberwidth=5
-set relativenumber
+"set relativenumber
 " Make it obvious where 80 characters is
 set textwidth=80
 set colorcolumn=80

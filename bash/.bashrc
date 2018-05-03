@@ -23,3 +23,4 @@ alias ls="ls --color=auto"
 alias ll="ls -l --color=auto"
 alias la="ls -a --color=auto"
 
+alias lftraining="qemu-system-x86_64 -net user -net nic,model=virtio -enable-kvm -m 1024"
