@@ -1,7 +1,7 @@
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
-rofi.terminal: mate-terminal
+rofi.terminal: roxterm
 rofi.color-enabled: true
 rofi.font: System San Francisco Display Regular 18
 rofi.lines: 3
@@ -23,13 +23,13 @@ rofi.color-urgent: #0039ff, #ff7047, #0039ff, #4f80ff, #ff7047
 ! ------------------------------------------------------------------------------
 ! URXVT configuration and Color theme
 ! ------------------------------------------------------------------------------
-!urxvt*font:                 xft:xos4 Terminus:size=10
-urxvt*font:                 xft:Source Code Pro for Powerline:size=10:style=Semibold
+!URxvt*font:                 xft:xos4 Terminus:size=10
+URxvt*font:                 xft:Source Code Pro for Powerline:size=10:style=Semibold
 
-urxvt*termName:             rxvt
-urxvt*background:           #33393b
-urxvt*foreground:           white
-urxvt*scrollBar:            false
+URxvt*termName:             rxvt
+URxvt*background:           #33393b
+URxvt*foreground:           white
+URxvt*scrollBar:            false
 
 URxvt.perl-ext-common:      default,matcher
 URxvt.url-launcher:         /usr/bin/xdg-open
