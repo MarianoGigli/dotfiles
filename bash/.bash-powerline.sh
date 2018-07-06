@@ -128,14 +128,6 @@ __powerline() {
         printf " $GIT_BRANCH_SYMBOL$branch$marks "
     }
 
-    # Virtual Env
-    if [[ $VIRTUAL_ENV != "" ]]
-    then
-        VENV=" ${FG_ORANGE}(${VIRTUAL_ENV##*/}) $RESET\n"
-    else
-        VENV=''
-    fi
-
     ps1() {
         # Check the exit code of the previous command and display different
         # colors in the prompt accordingly. 
@@ -143,6 +135,14 @@ __powerline() {
             local BG_EXIT="$BG_GREEN"
         else
             local BG_EXIT="$BG_RED"
+        fi
+
+        # Virtual Env
+        if [[ $VIRTUAL_ENV ]]
+        then
+            VENV="${FG_ORANGE}(${VIRTUAL_ENV##*/})$RESET\n"
+        else
+            VENV=''
         fi
 
         PS1="$VENV"

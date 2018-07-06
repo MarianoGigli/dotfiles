@@ -31,7 +31,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec roxterm
+bindsym $mod+Return exec sakura
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -111,8 +111,8 @@ set $workspace0 "0:"
 
 # binding apps to workspace
 assign [class="Chromium"] $workspace1
-assign [class="Roxterm"] $workspace2
-assign [class="Alacritty"] $workspace2
+assign [class="st-256color"] $workspace2
+assign [class="Sakura"] $workspace2
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
