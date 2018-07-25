@@ -3,6 +3,10 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# GPG start
+GPG_TTY=$(tty)
+export GPG_TTY
+
 PATH=~/.local/bin:$PATH
 
 # BASH SETTINGS
