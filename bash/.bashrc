@@ -16,10 +16,12 @@ HISTIGNORE="&:?:?[ \t]*:??[ \t]:su*:sudo*:[bf]g*:exit:*-h:*--help:man*:[ \t]*"
 PAGER=less
 EDITOR=vim
 
-#. ~/.bash_prompt
-if [ "$TERM" != "linux" ]; then
-    . ~/.bash-powerline.sh
-    export TERM=xterm-256color
+function _update_ps1() {
+    PS1=$(powerline-shell $?)
+}
+
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
 
