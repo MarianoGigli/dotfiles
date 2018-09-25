@@ -74,6 +74,9 @@ command! MakeTags !ctags -R --exclude=@/home/mariano/.ctagsexclude .
 " NOW WE CAN:
 " - Use ^n and ^p to go back and forth in the suggestion list
 
+" set paste
+set pastetoggle=<F4>
+
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 Plug 'vim-scripts/xoria256.vim'

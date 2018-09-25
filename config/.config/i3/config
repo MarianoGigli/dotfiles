@@ -97,8 +97,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # workspace definition
-set $workspace1 "1:"
-set $workspace2 "2:"
+set $workspace1 "1:"
+set $workspace2 "2:"
 set $workspace3 "3:"
 set $workspace4 "4:"
 set $workspace5 "5:"
@@ -109,8 +109,8 @@ set $workspace9 "9:"
 set $workspace0 "0:"
 
 # binding apps to workspace
-assign [class="Chromium"] $workspace1
-assign [class="st-256color"] $workspace2
+assign [class="st-256color"] $workspace1
+assign [class="Chromium"] $workspace2
 assign [class="Pcmanfm"] $workspace3
 
 # switch to workspace
@@ -179,16 +179,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # same bindings,
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -233,7 +233,7 @@ exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id nitrogen --restore
 
 # set volumen icon
-exec --no-startup-id volumeicon
+# exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
 exec --no-startup-id mate-power-manager
 
