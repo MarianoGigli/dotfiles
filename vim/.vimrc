@@ -1,5 +1,5 @@
 " be iMproved, required set nocompatible
-" enable syntax and plugins (for netrw)
+" enable syntax and plugins for netrw
 syntax enable
 filetype plugin on
 filetype indent on
@@ -13,8 +13,10 @@ set encoding=utf-8
 set textwidth=80
 set colorcolumn=80
 
+set ts=4
 set tabstop=4
 set softtabstop=4
+set shiftwidth=4
 set expandtab
 
 " Display extra whitespace
@@ -77,6 +79,10 @@ command! MakeTags !ctags -R --exclude=@/home/mariano/.ctagsexclude .
 " set paste
 set pastetoggle=<F4>
 
+au FileType py set autoindent
+au FileType py set smartindent
+au FileType py set textwidth=79 " PEP-8 Friendly
+
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 Plug 'vim-scripts/xoria256.vim'
@@ -98,8 +104,12 @@ let g:lightline = {
       \ 'colorscheme': 'seoul256',
       \ }
 
+let g:virtualenv_auto_activate = 1
 " vim-jedi config
 let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#completions_enabled = 0
+autocmd FileType python setlocal completeopt-=preview
+
 " python-mode configuration
 autocmd CompleteDone * pclose
 set splitbelow
@@ -108,7 +118,14 @@ let g:pymode_virtualenv = 1
 let g:pymode_lint_ignore = ["W391",]
 let g:pymode_lint_on_fly = 1
 
+
 " NEERDTree configuration
 let NERDTreeNaturalSort = 1
 map <F2> :NERDTreeToggle<CR>
 
+
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
