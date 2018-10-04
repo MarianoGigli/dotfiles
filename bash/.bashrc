@@ -33,3 +33,4 @@ alias la="ls -a --color=auto"
 
 alias lftraining="qemu-system-x86_64 -net user -net nic,model=virtio -enable-kvm -m 1024"
 
+alias vim="nvim"

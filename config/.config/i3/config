@@ -238,8 +238,13 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id nm-applet
 exec --no-startup-id mate-power-manager
 
-bindsym $mod+p exec --no-startup-id spt
-
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id ponymix increase 5 --output
+bindsym XF86AudioLowerVolume exec --no-startup-id ponymix decrease 5 --output
+bindsym XF86AudioMute exec --no-startup-id ponymix toggle --output # mute sound
+bindsym XF86AudioMicMute exec --no-startup-id ponymix toggle --input # mute mic sound
+#bindsym $mod+p exec --no-startup-id spt
+#
 # toggle workspace between two outputs
 bindsym $mod+x move workspace to output up
 
