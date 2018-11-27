@@ -1,4 +1,4 @@
 # dotfiles
 my dotfiles
 ### instalation
-use (GNU stow)[https://www.gnu.org/software/stow/]
+use [GNU stow](https://www.gnu.org/software/stow/)
