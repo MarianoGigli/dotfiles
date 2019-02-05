@@ -14,7 +14,7 @@ rofi.separator-style: none
 rofi.hide-scrollbar: false
 rofi.fake-transparency: true
 !                  'background', 'border', 'separator'
-rofi.color-window: argb:850039ff, #0039ff, #4F80FF
+rofi.color-window: argb:ee333333, #0039ff, #4F80FF
 ! State:           'bg',    'fg',    'bgalt', 'hlbg', 'hlfg'
 rofi.color-normal: #0039ff, #4f80ff, #0039ff, #4f80ff, #ffffff
 rofi.color-active: #0039ff, #68ba50, #0039ff, #4f80ff, #68ba50
@@ -33,8 +33,7 @@ st.termname:     st-256color
 !st.shell:        /bin/sh
 
 ! The following options options can be reloaded via USR1 signal.
-!st.font:              Liberation Mono:pixelsize=12:antialias=true:autohint=true;
-st.font: Source Code Pro for Powerline:style=semibold:pixelsize=14:antialias=true:autohint=true
+st.font: Noto Sans Mono:style=bold:pixelsize=12:antialias=true:autohint=true
 st.borderpx: 2
 ! Available cursor values: 2 4 6 7 = █ _ | ☃ ( 1 3 5 are blinking versions)
 st.cursorshape:       1

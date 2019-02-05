@@ -6,9 +6,11 @@ let g:python3_host_prog = '/home/mariano/.virtualenvs/python3neovim/bin/python'
 
 call plug#begin('~/.local/share/nvim/plugged')
 " Make sure you use single quotes
+Plug 'machakann/vim-highlightedyank'
 Plug 'vim-scripts/xoria256.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'raimondi/delimitmate'
+Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'
 Plug 'davidhalter/jedi-vim'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -56,17 +58,16 @@ set incsearch     " do incremental searching
 set ignorecase
 set smartcase
 set nohlsearch
-
+set inccommand=split
 set nowrap
-set autoindent
 
+set expandtab
 set textwidth=80
 set colorcolumn=80 " Make it obvious where 80 characters is
-set ts=4
-set tabstop=4
+set tabstop=8
 set softtabstop=4
 set shiftwidth=4
-set expandtab
+set autoindent
 
 set spell spelllang=en_us
 set nospell
@@ -85,8 +86,6 @@ set path+=**
 nnoremap <Leader>f :tabf
 
 " set python friendly
-autocmd FileType py set autoindent
-autocmd FileType py set smartindent
 autocmd FileType py set textwidth=79 " PEP-8 Friendly
 
 " tab length exceptions on some file types
@@ -106,6 +105,9 @@ endif
 
 colorscheme xoria256
 highlight ColorColumn ctermbg=235
+
+" -1 make highlight persistent
+let g:highlightedyank_highlight_duration = 1000
 
 " jedi config
 let g:jedi#use_tabs_not_buffers = 1
@@ -134,6 +136,23 @@ augroup CloseLoclistWindowGroup
     autocmd QuitPre * if empty(&buftype) | lclose | endif
 augroup END
 
+" map esc to ñ
+nnoremap ñ <Esc>
+vnoremap ñ <Esc>gV
+onoremap ñ <Esc>
+cnoremap ñ <C-C><Esc>
+inoremap ñ <Esc>`^
+
+" no arrows keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+
 " tab navigation
 map tt :tabnew 
 map tn :tabn<CR>
@@ -142,15 +161,85 @@ nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>
 
-" navigate windows with alt+arrows
-map <M-Right> <c-w>l
-map <M-Left> <c-w>h
-map <M-Up> <c-w>k
-map <M-Down> <c-w>j
-imap <M-Right> <ESC><c-w>l
-imap <M-Left> <ESC><c-w>h
-imap <M-Up> <ESC><c-w>k
-imap <M-Down> <ESC><c-w>j
+" navigate windows with alt+motion-keys
+map <M-l> <c-w>l
+map <M-h> <c-w>h
+map <M-k> <c-w>k
+map <M-j> <c-w>j
+imap <M-l> <ESC><c-w>l
+imap <M-h> <ESC><c-w>h
+imap <M-k> <ESC><c-w>k
+imap <M-j> <ESC><c-w>j
+
+"" Vmap for maintain Visual Mode after shifting > and <
+vmap < <gv
+vmap > >gv
+
+" Move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" default file explorer
+"*g:netrw_browse_split*	when browsing, <cr> will open the file by:
+"=0: re-using the same window  (default)
+"=1: horizontally splitting the window first
+"=2: vertically   splitting the window first
+"=3: open file in new tab
+map <F2> :Texplore<CR>
+map <F3> :Vexplore<CR>
+let g:netrw_banner = 1
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 0
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+
+
+
+" vim-airline
+let g:airline_theme = 'atomic' " 'minimalist'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_skip_empty_sections = 1
+
+" vim-airline
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+if !exists('g:airline_powerline_fonts')
+  let g:airline#extensions#tabline#left_sep = ' '
+  let g:airline#extensions#tabline#left_alt_sep = '|'
+  let g:airline_left_sep          = '▶'
+  let g:airline_left_alt_sep      = '»'
+  let g:airline_right_sep         = '◀'
+  let g:airline_right_alt_sep     = '«'
+  let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
+  let g:airline#extensions#readonly#symbol   = '⊘'
+  let g:airline#extensions#linecolumn#prefix = '¶'
+  let g:airline#extensions#paste#symbol      = 'ρ'
+  let g:airline_symbols.linenr    = ''
+  let g:airline_symbols.branch    = '⎇'
+  let g:airline_symbols.paste     = 'ρ'
+  let g:airline_symbols.paste     = 'Þ'
+  let g:airline_symbols.paste     = '∥'
+  let g:airline_symbols.whitespace = 'Ξ'
+else
+  let g:airline#extensions#tabline#left_sep = ''
+  let g:airline#extensions#tabline#left_alt_sep = ''
+
+  " powerline symbols
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.readonly = ''
+  let g:airline_symbols.linenr = ''
+  "let g:airline#extensions#ale#error_symbol = ''
+  "let g:airline#extensions#ale#warning_symbol = ''
+endif
 
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv

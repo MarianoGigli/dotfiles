@@ -252,3 +252,8 @@ bindsym $mod+x move workspace to output up
 bindsym $mod+Ctrl+Up move container to output up
 bindsym $mod+Ctrl+Down move container to output down
 exec --no-startup-id xrandr | grep -q HDMI1 && xrandr --output eDP1 --auto --primary --output HDMI1 --auto --above eDP1
+
+# scrot: screenshots
+bindsym Print exec scrot $HOME/Pictures/ScreenShoots/`date +%Y-%m-%d_%H:%M:%S`.png
+# scrot - select window
+bindsym $mod+Print exec scrot -u $HOME/Pictures/ScreenShoots/`date +%Y-%m-%d_%H:%M:%S`.png
