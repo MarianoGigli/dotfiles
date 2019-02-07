@@ -32,5 +32,7 @@ alias la="ls -a --color=auto"
 
 alias code=" proot -R ~/void-glibc code-oss /dev/null 2>&1 &"
 
-alias supervisord-blameless='supervisord -c /home/mariano/blameless/supervisord-blameless.conf'
-alias supervisorctl-blameless='supervisorctl -c /home/mariano/blameless/supervisord-blameless.conf'
+alias supervisord-blameless='supervisord -c /home/mariano/Blameless/supervisord-blameless.conf'
+alias supervisorctl-blameless='supervisorctl -c /home/mariano/Blameless/supervisord-blameless.conf'
+alias blameless-set-full-venv="for i in `grep program /home/mariano/Blameless/supervisord-blameless.conf | awk -F: '{ print $2 }' | tr -d ']'`; do cd $i; echo $i; pipenv install -d; cd -; done"
+alias blameless-update-all-repos="for i in `grep program /home/mariano/Blameless/supervisord-blameless.conf | awk -F: '{ print $2 }' | tr -d ']'`; do cd $i; echo $i; git pull; cd -; done"
