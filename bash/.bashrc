@@ -15,6 +15,8 @@ HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="&:?:?[ \t]*:??[ \t]:su*:sudo*:[bf]g*:exit:*-h:*--help:man*:[ \t]*"
 PAGER=less
 EDITOR=vim
+PIPENV_VENV_IN_PROJECT=1
+export PYTHONIOENCODING=UTF-8
 
 function _update_ps1() {
     PS1=$(powerline-shell $?)
@@ -30,9 +32,5 @@ alias ls="ls --color=auto"
 alias ll="ls -l --color=auto"
 alias la="ls -a --color=auto"
 
-alias code=" proot -R ~/void-glibc code-oss /dev/null 2>&1 &"
-
-alias supervisord-blameless='supervisord -c /home/mariano/Blameless/supervisord-blameless.conf'
-alias supervisorctl-blameless='supervisorctl -c /home/mariano/Blameless/supervisord-blameless.conf'
-alias blameless-set-full-venv="for i in `grep program /home/mariano/Blameless/supervisord-blameless.conf | awk -F: '{ print $2 }' | tr -d ']'`; do cd $i; echo $i; pipenv install -d; cd -; done"
-alias blameless-update-all-repos="for i in `grep program /home/mariano/Blameless/supervisord-blameless.conf | awk -F: '{ print $2 }' | tr -d ']'`; do cd $i; echo $i; git pull; cd -; done"
+# aliases
+. ~/.aliases

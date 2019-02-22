@@ -99,7 +99,7 @@ bindsym $mod+a focus parent
 
 # workspace definition
 set $workspace1 "1:"
-set $workspace2 "2:"
+set $workspace2 "2:"
 set $workspace3 "3:"
 set $workspace4 "4:"
 set $workspace5 "5:"
@@ -110,8 +110,8 @@ set $workspace9 "9:"
 set $workspace0 "0:"
 
 # binding apps to workspace
-assign [class="st-256color"] $workspace1
-assign [class="Chromium"] $workspace2
+assign [class="st-256color|tabbed"] $workspace1
+assign [class="Chromium|Firefox|Navigator"] $workspace2
 assign [class="Pcmanfm"] $workspace3
 assign [class="^[Ss]lack"] $workspace3
 assign [class="^zoom"] $workspace4
@@ -216,7 +216,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # Start i3bar to display a workspace bar (plus the system information i3blocks
 # finds out, if available)
 bar {
-    font pango:Noto Serif Mono 9
+    font pango:Noto Serif Mono 9.5
     position top
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
     colors {
@@ -236,9 +236,8 @@ exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id nitrogen --restore
 
 # set volumen icon
-# exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
-exec --no-startup-id mate-power-manager
+# exec --no-startup-id mate-power-manager
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id ponymix increase 5 --output

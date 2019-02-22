@@ -122,3 +122,11 @@ st.opacity:      0
 *.color19:      #464b50
 *.color20:      #838184
 *.color21:      #c3c3c3
+
+! font configuration
+Xft.autohint: 1
+Xft.antialias: 1
+Xft.hinting: true
+Xft.hintstyle:hintmedium
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault

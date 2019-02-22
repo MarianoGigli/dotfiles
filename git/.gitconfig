@@ -11,3 +11,5 @@ interactive = true
 status = true
 ui = true
 showbranch = true
+[diff "sopsdiffer"]
+	textconv = sops -d

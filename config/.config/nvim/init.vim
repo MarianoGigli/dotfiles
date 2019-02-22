@@ -62,7 +62,7 @@ set inccommand=split
 set nowrap
 
 set expandtab
-set textwidth=80
+" set textwidth=80
 set colorcolumn=80 " Make it obvious where 80 characters is
 set tabstop=8
 set softtabstop=4
