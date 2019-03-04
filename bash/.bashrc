@@ -15,7 +15,7 @@ HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="&:?:?[ \t]*:??[ \t]:su*:sudo*:[bf]g*:exit:*-h:*--help:man*:[ \t]*"
 PAGER=less
 EDITOR=vim
-PIPENV_VENV_IN_PROJECT=1
+export PIPENV_VENV_IN_PROJECT=1
 export PYTHONIOENCODING=UTF-8
 
 function _update_ps1() {

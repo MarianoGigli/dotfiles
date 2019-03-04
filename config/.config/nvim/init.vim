@@ -16,6 +16,7 @@ Plug 'davidhalter/jedi-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " Plugins need to be added to runtimepath before helptags can be generated.
@@ -310,3 +311,6 @@ else
   "let g:airline#extensions#ale#error_symbol = ''
   "let g:airline#extensions#ale#warning_symbol = ''
 endif
+
+" avoid conflict with editor_config and fugitive
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']

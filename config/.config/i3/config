@@ -31,7 +31,8 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec tabbed -c -r 2 st -w ''
+# bindsym $mod+Return exec tabbed -c -r 2 st -w ''
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -100,8 +101,8 @@ bindsym $mod+a focus parent
 # workspace definition
 set $workspace1 "1:"
 set $workspace2 "2:"
-set $workspace3 "3:"
-set $workspace4 "4:"
+set $workspace3 "3:"
+set $workspace4 "4:"
 set $workspace5 "5:"
 set $workspace6 "6:"
 set $workspace7 "7:"
@@ -111,10 +112,11 @@ set $workspace0 "0:"
 
 # binding apps to workspace
 assign [class="st-256color|tabbed"] $workspace1
+assign [class="URxvt|urxvt"] $workspace1
 assign [class="Chromium|Firefox|Navigator"] $workspace2
-assign [class="Pcmanfm"] $workspace3
 assign [class="^[Ss]lack"] $workspace3
-assign [class="^zoom"] $workspace4
+assign [class="^zoom"] $workspace3
+assign [class="Pcmanfm"] $workspace4
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -216,7 +218,8 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # Start i3bar to display a workspace bar (plus the system information i3blocks
 # finds out, if available)
 bar {
-    font pango:Noto Serif Mono 9.5
+    # font pango:Roboto Mono for Powerline Bold 9
+    font pango:Font Awesome 5 Brand Bold 8
     position top
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
     colors {
@@ -238,6 +241,10 @@ exec --no-startup-id nitrogen --restore
 # set volumen icon
 exec --no-startup-id nm-applet
 # exec --no-startup-id mate-power-manager
+
+# Monitor Brigthness
+bindsym XF86MonBrightnessDown exec xbacklight -5
+bindsym XF86MonBrightnessUp exec xbacklight +5
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id ponymix increase 5 --output
