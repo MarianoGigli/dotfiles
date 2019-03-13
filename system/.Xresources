@@ -1,7 +1,7 @@
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
-rofi.terminal: st
+rofi.terminal: urxvt
 rofi.color-enabled: true
 rofi.font: System San Francisco Display Regular 18
 rofi.lines: 3
@@ -59,33 +59,6 @@ st.prompt_char:       $
 
 ! opacity==255 means what terminal will be not transparent, 0 - fully transparent
 st.opacity:      0
-
-! Defaults taken from base16-twilight colorscheme.
-!*.foreground:   #a7a7a7
-!*.background:   #1e1e1e
-!*.color0:       #1e1e1e
-!*.color1:       #cf6a4c
-!*.color2:       #8f9d6a
-!*.color3:       #f9ee98
-!*.color4:       #7587a6
-!*.color5:       #9b859d
-!*.color6:       #afc4db
-!*.color7:       #a7a7a7
-!*.color8:       #5f5a60
-!*.color9:       #cf6a4c
-!*.color10:      #8f9d6a
-!*.color11:      #f9ee98
-!*.color12:      #7587a6
-!*.color13:      #9b859d
-!*.color14:      #afc4db
-!*.color15:      #ffffff
-!*.color16:      #cda869
-!*.color17:      #9b703f
-!*.color18:      #323537
-!*.color19:      #464b50
-!*.color20:      #838184
-!*.color21:      #c3c3c3
-
 
 ! special
 *.foreground:   #c5c8c6

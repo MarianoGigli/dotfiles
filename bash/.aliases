@@ -4,4 +4,4 @@ alias supervisord='mkdir -p /tmp/Blameless/var/log && supervisord -c /home/maria
 alias supervisorctl='supervisorctl -c /home/mariano/Blameless/supervisord-blameless.conf'
 alias blameless-venv="for i in `grep program /home/mariano/Blameless/supervisord-blameless.conf | awk -F: '{ print $2 }' | tr -d ']'`; do cd $i; echo $i; pipenv install -d; cd -; done"
 alias blameless-update-repos="for i in `grep program /home/mariano/Blameless/supervisord-blameless.conf | awk -F: '{ print $2 }' | tr -d ']'`; do cd $i; echo $i; git checkout master; git pull; cd -; done"
-alias serveo-tunnel='ssh -o ServerAliveInterval=60 -R sopor.serveo.net:80:localhost:8112 serveo.net'
+alias serveo-tunnel='ssh -o ServerAliveInterval=60 -R velox.serveo.net:80:localhost:8112 serveo.net'

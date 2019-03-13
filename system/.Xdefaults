@@ -37,9 +37,9 @@ URxvt*scrollBar_right:   true
 URxvt*transparent:       false
 
 URxvt*depth: 32
-URxvt.background: [90]#101010
+URxvt.background: [95]#101010
 
-URxvt.font: xft:Source Code Pro for Powerline:style=Bold:pixelsize=12
+URxvt.font: xft:Source Code Pro for Powerline:style=Bold:pixelsize=12:minspace=False,xft:Symbola:minspace=False
 URxvt.letterSpace: 1
 
 *antialias:  true

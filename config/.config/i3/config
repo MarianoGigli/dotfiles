@@ -238,13 +238,13 @@ exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 # restore wallpaper
 exec --no-startup-id nitrogen --restore
 
-# set volumen icon
 exec --no-startup-id nm-applet
 # exec --no-startup-id mate-power-manager
+exec --no-startup-id compton --backend glx --vsync opengl-swc
 
 # Monitor Brigthness
-bindsym XF86MonBrightnessDown exec xbacklight -5
-bindsym XF86MonBrightnessUp exec xbacklight +5
+bindsym XF86MonBrightnessDown exec xbacklight -5 && dunstify -t 800 -r 666 `xbacklight -get | awk -F. '{print $1}'`
+bindsym XF86MonBrightnessUp exec xbacklight +5 && dunstify -t 800 -r 666 `xbacklight -get | awk -F. '{print $1}'`
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id ponymix increase 5 --output
