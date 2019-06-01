@@ -15,6 +15,7 @@ HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="&:?:?[ \t]*:??[ \t]:su*:sudo*:[bf]g*:exit:*-h:*--help:man*:[ \t]*"
 PAGER=less
 EDITOR=nvim
+export PROMPT_COMMAND='echo -ne "\033]0;$PWD\007"'
 export PIPENV_VENV_IN_PROJECT=1
 export PYTHONIOENCODING=UTF-8
 
