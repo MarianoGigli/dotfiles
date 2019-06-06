@@ -2,7 +2,7 @@
 name = Mariano Gigli
 email = marianogigli@gmail.com
 [core]
-editor = vim
+editor = nvim
 pager = less -r
 [color]
 branch = true
@@ -12,4 +12,4 @@ status = true
 ui = true
 showbranch = true
 [diff "sopsdiffer"]
-	textconv = sops -d
+textconv = sops -d
