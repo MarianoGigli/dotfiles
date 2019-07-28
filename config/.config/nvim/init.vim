@@ -194,5 +194,5 @@ let g:lightline.tab = {
     \ 'active': [ 'tabnum', 'filename', 'modified' ],
     \ 'inactive': [ 'tabnum', 'filename', 'modified' ] }
 
-" avoid conflict with editor_config and fugitive
+" avoid conflict with editor_config, fugitive and remote files over ssh
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
