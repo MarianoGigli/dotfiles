@@ -11,11 +11,10 @@ Plug 'vim-scripts/xoria256.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-fugitive'
-Plug 'w0rp/ale'
-Plug 'davidhalter/jedi-vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
@@ -70,6 +69,12 @@ set softtabstop=4
 set shiftwidth=4
 set autoindent
 
+colorscheme xoria256
+highlight ColorColumn ctermbg=235
+
+" -1 make highlight persistent
+let g:highlightedyank_highlight_duration = 1000
+
 set spell spelllang=en_us
 set nospell
 
@@ -86,57 +91,27 @@ set wildignore+=*.pyc,*/.git
 set path+=**
 nnoremap <Leader>f :tabf
 
-" set python friendly
-autocmd FileType py set textwidth=79 " PEP-8 Friendly
-
-" tab length exceptions on some file types
-autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4
-autocmd FileType htmldjango setlocal shiftwidth=4 tabstop=4 softtabstop=4
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType json setlocal shiftwidth=2 tabstop=2 softtabstop=2
-
-autocmd BufWritePre *.py :%s/\s\+$//e " StripTrailingWhitespaces
-
-
 if executable('rg')
   set grepprg=rg\ --color=never
   let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
   let g:ctrlp_use_caching = 0
 endif
 
-colorscheme xoria256
-highlight ColorColumn ctermbg=235
+" DEFAULT FILE EXPLORER
+"*g:netrw_browse_split*	when browsing, <cr> will open the file by:
+"=0: re-using the same window  (default)
+"=1: horizontally splitting the window first
+"=2: vertically   splitting the window first
+"=3: open file in new tab
+map <F2> :Texplore<CR>
+map <F3> :Vexplore<CR>
+let g:netrw_banner = 1
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 0
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
 
-" -1 make highlight persistent
-let g:highlightedyank_highlight_duration = 1000
-
-" jedi config
-let g:jedi#use_tabs_not_buffers = 1
-let g:jedi#show_call_signatures = "2"
-autocmd FileType python setlocal completeopt-=preview
-
-" ale config
-let g:ale_completion_enabled = 0
-let g:ale_open_list = 0
-let g:ale_list_window_size = 5
-let b:ale_fixers = {
-\   'python': ['autopep8'],
-\   'python3': ['autopep8']
-\}
-let g:ale_fix_on_save = 0
-let g:ale_lint_on_enter = 0
-let g:ale_linters = {
-\   'python': ['flake8', 'pylint'],
-\   'python3': ['flake8', 'pylint'],
-\}
-nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
-nmap <silent> <Leader>j <Plug>(ale_next_wrap)
-
-augroup CloseLoclistWindowGroup
-    autocmd!
-    autocmd QuitPre * if empty(&buftype) | lclose | endif
-augroup END
-
+" KEY map:
 " map esc to ñ
 nnoremap ñ <Esc>
 vnoremap ñ <Esc>gV
@@ -180,137 +155,44 @@ vmap > >gv
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-" default file explorer
-"*g:netrw_browse_split*	when browsing, <cr> will open the file by:
-"=0: re-using the same window  (default)
-"=1: horizontally splitting the window first
-"=2: vertically   splitting the window first
-"=3: open file in new tab
-map <F2> :Texplore<CR>
-map <F3> :Vexplore<CR>
-let g:netrw_banner = 1
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 0
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
+" set python friendly
+autocmd FileType py set textwidth=79 " PEP-8 Friendly
+autocmd BufWritePre *.py :%s/\s\+$//e " StripTrailingWhitespaces
 
+" tab length exceptions on some file types
+autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType htmldjango setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType json setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+" Do not show docstring on completion
+autocmd FileType python setlocal completeopt-=preview
 
-" vim-airline
-let g:airline_theme = 'atomic' " 'minimalist'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_skip_empty_sections = 1
+augroup CloseLoclistWindowGroup
+    autocmd!
+    autocmd QuitPre * if empty(&buftype) | lclose | endif
+augroup END
 
-" vim-airline
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
+" lightline
+let g:lightline = {
+    \ 'colorscheme': 'seoul256',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'fugitive', 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'gitbranch': 'fugitive#head'
+    \ },
+\ }
 
-if !exists('g:airline_powerline_fonts')
-  let g:airline#extensions#tabline#left_sep = ' '
-  let g:airline#extensions#tabline#left_alt_sep = '|'
-  let g:airline_left_sep          = '▶'
-  let g:airline_left_alt_sep      = '»'
-  let g:airline_right_sep         = '◀'
-  let g:airline_right_alt_sep     = '«'
-  let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
-  let g:airline#extensions#readonly#symbol   = '⊘'
-  let g:airline#extensions#linecolumn#prefix = '¶'
-  let g:airline#extensions#paste#symbol      = 'ρ'
-  let g:airline_symbols.linenr    = ''
-  let g:airline_symbols.branch    = '⎇'
-  let g:airline_symbols.paste     = 'ρ'
-  let g:airline_symbols.paste     = 'Þ'
-  let g:airline_symbols.paste     = '∥'
-  let g:airline_symbols.whitespace = 'Ξ'
-else
-  let g:airline#extensions#tabline#left_sep = ''
-  let g:airline#extensions#tabline#left_alt_sep = ''
-
-  " powerline symbols
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.readonly = ''
-  let g:airline_symbols.linenr = ''
-  "let g:airline#extensions#ale#error_symbol = ''
-  "let g:airline#extensions#ale#warning_symbol = ''
-endif
-
-"" Vmap for maintain Visual Mode after shifting > and <
-vmap < <gv
-vmap > >gv
-
-" Move visual block
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
-" default file explorer
-"*g:netrw_browse_split*	when browsing, <cr> will open the file by:
-"=0: re-using the same window  (default)
-"=1: horizontally splitting the window first
-"=2: vertically   splitting the window first
-"=3: open file in new tab
-map <F2> :Texplore<CR>
-map <F3> :Vexplore<CR>
-let g:netrw_banner = 1
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 0
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
-
-
-
-" vim-airline
-let g:airline_theme = 'atomic' " 'minimalist'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_skip_empty_sections = 1
-
-" vim-airline
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-if !exists('g:airline_powerline_fonts')
-  let g:airline#extensions#tabline#left_sep = ' '
-  let g:airline#extensions#tabline#left_alt_sep = '|'
-  let g:airline_left_sep          = '▶'
-  let g:airline_left_alt_sep      = '»'
-  let g:airline_right_sep         = '◀'
-  let g:airline_right_alt_sep     = '«'
-  let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
-  let g:airline#extensions#readonly#symbol   = '⊘'
-  let g:airline#extensions#linecolumn#prefix = '¶'
-  let g:airline#extensions#paste#symbol      = 'ρ'
-  let g:airline_symbols.linenr    = ''
-  let g:airline_symbols.branch    = '⎇'
-  let g:airline_symbols.paste     = 'ρ'
-  let g:airline_symbols.paste     = 'Þ'
-  let g:airline_symbols.paste     = '∥'
-  let g:airline_symbols.whitespace = 'Ξ'
-else
-  let g:airline#extensions#tabline#left_sep = ''
-  let g:airline#extensions#tabline#left_alt_sep = ''
-
-  " powerline symbols
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.readonly = ''
-  let g:airline_symbols.linenr = ''
-  "let g:airline#extensions#ale#error_symbol = ''
-  "let g:airline#extensions#ale#warning_symbol = ''
-endif
+let g:lightline.tabline = {
+    \ 'left': [ [ 'tabs' ] ],
+    \ 'right': [ [ 'close' ] ] }
+let g:lightline.tab = {
+    \ 'active': [ 'tabnum', 'filename', 'modified' ],
+    \ 'inactive': [ 'tabnum', 'filename', 'modified' ] }
 
 " avoid conflict with editor_config and fugitive
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
