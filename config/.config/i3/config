@@ -110,8 +110,7 @@ set $workspace9 "9:"
 set $workspace0 "0:"
 
 # binding apps to workspace
-assign [class="st-256color|tabbed"] $workspace1
-assign [class="URxvt|urxvt"] $workspace1
+assign [class="^[Ss]akura|st-256color|tabbed"] $workspace1
 assign [class="Chromium|Firefox|Navigator"] $workspace2
 assign [class="^[Ss]lack"] $workspace3
 assign [class="^zoom"] $workspace3

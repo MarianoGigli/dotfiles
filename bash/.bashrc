@@ -7,6 +7,8 @@
 GPG_TTY=$(tty)
 export GPG_TTY
 
+export TERMINAL=sakura
+
 PATH=~/.local/bin:$PATH
 
 # BASH SETTINGS
