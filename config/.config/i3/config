@@ -75,7 +75,7 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # split toggle
-# bindsym $mod+t split t
+bindsym $mod+t split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -83,7 +83,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+e layout toggle all
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -92,10 +92,10 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+p focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+c focus child
 
 # workspace definition
 set $workspace1 "1:"
@@ -249,7 +249,6 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id ponymix increase 5 --output
 bindsym XF86AudioLowerVolume exec --no-startup-id ponymix decrease 5 --output
 bindsym XF86AudioMute exec --no-startup-id ponymix toggle --output # mute sound
 bindsym XF86AudioMicMute exec --no-startup-id ponymix toggle --input # mute mic sound
-#bindsym $mod+p exec --no-startup-id spt
 #
 # toggle workspace between two outputs
 bindsym $mod+x move workspace to output up
