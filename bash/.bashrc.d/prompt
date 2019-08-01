@@ -44,8 +44,7 @@ function prompt_command() {
 	local git_prompt=
 	if [[ "true" = "$(git rev-parse --is-inside-work-tree 2>/dev/null)" ]]; then
 		# Branch name
-		local branch="$(git symbolic-ref HEAD 2>/dev/null)"
-		branch="${branch##refs/heads/}"
+		local branch="$(git branch --show-current)"
 
 		# Working tree status (red when dirty)
 		local dirty=
@@ -55,9 +54,9 @@ function prompt_command() {
 		[ -z "$dirty" ] && test -n "$(git status --porcelain)" && dirty=1
 
 		# Format Git info
-		if [ -n "$dirty" ]; then
+		if [ -n "$dirty" ] && [ -n "$branch" ]; then
 			git_prompt=" $RED$prompt_dirty_symbol$branch$NOCOLOR"
-		else
+		elif [ -z "$dirty" ] && [ -n "$branch" ]; then
 			git_prompt=" $GREEN$prompt_clean_symbol$branch$NOCOLOR"
 		fi
 	fi
