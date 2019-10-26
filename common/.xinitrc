@@ -11,15 +11,13 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 [ -f $userresources ] && /usr/bin/xrdb -merge $userresources
 [ -f $usermodmap ] && /usr/bin/xmodmap $usermodmap
 
-#setxkbmap es
-setxkbmap -model latitude -layout latam
+# setxkbmap es
+# setxkbmap -model latitude -layout latam
+# setxkbmap us
+setxkbmap -model default -layout us -variant altgr-intl
 
 # init pulseaudio
 start-pulseaudio-x11 &
 
 # Start i3
-if [ -z "$DESKTOP_SESSION" -a -x /usr/bin/ck-launch-session ]; then
-    exec ck-launch-session dbus-launch --exit-with-session /usr/bin/i3
-else
-    exec /usr/bin/i3
-fi
+exec /usr/bin/i3

@@ -171,7 +171,7 @@ mode "$system" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-bindsym $mod+Control+Delete mode "$system"
+bindsym $mod+Control+BackSpace mode "$system"
 
 
 # resize window (you can also use the mouse for that)
@@ -256,7 +256,7 @@ bindsym $mod+x move workspace to output up
 # toggle container between two outputs
 bindsym $mod+Ctrl+Up move container to output up
 bindsym $mod+Ctrl+Down move container to output down
-exec --no-startup-id xrandr | grep -q HDMI1 && xrandr --output eDP1 --auto --primary --output HDMI1 --auto --above eDP1
+exec --no-startup-id xrandr | grep -q HDMI1 && xrandr --output eDP1 --dpi 112 --auto --primary --output HDMI1 --auto --above eDP1
 
 # scrot: screenshots
 bindsym Print exec scrot $HOME/Pictures/ScreenShoots/`date +%Y-%m-%d_%H:%M:%S`.png

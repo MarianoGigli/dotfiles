@@ -1,0 +1,8 @@
+# Bash variables
+export PAGER=less
+export EDITOR=nvim
+export PIPENV_VENV_IN_PROJECT=1
+export PYTHONIOENCODING=UTF-8
+
+# File Opener
+export FFF_OPENER="xdg-open"
