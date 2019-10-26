@@ -3,7 +3,7 @@
 ! ------------------------------------------------------------------------------
 rofi.terminal: sakura
 rofi.color-enabled: true
-rofi.font: System San Francisco Display Regular 18
+rofi.font: Source Code Pro Semi-Bold 18
 rofi.lines: 3
 rofi.eh: 2
 rofi.width: 100
@@ -97,9 +97,10 @@ st.opacity:      0
 *.color21:      #c3c3c3
 
 ! font configuration
+Xft.dpi: 112
 Xft.autohint: 1
 Xft.antialias: 1
 Xft.hinting: true
-Xft.hintstyle:hintmedium
+Xft.hintstyle: hintslight
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault

@@ -1,3 +1,0 @@
-! Unmap capslock
-clear Lock
-keycode 66 = Escape
