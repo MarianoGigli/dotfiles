@@ -45,10 +45,10 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show run
 
 # change focus
-# bindsym $mod+j focus left
-# bindsym $mod+k focus down
-# bindsym $mod+l focus up
-# bindsym $mod+ntilde focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -57,10 +57,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-# bindsym $mod+Shift+j move left
-# bindsym $mod+Shift+k move down
-# bindsym $mod+Shift+l move up
-# bindsym $mod+Shift+ntilde move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -69,7 +69,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+z split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -113,7 +113,6 @@ set $workspace0 "0:"
 assign [class="^[Ss]akura|st-256color|tabbed"] $workspace1
 assign [class="Chromium|Firefox|Navigator"] $workspace2
 assign [class="^[Ss]lack"] $workspace3
-assign [class="^zoom"] $workspace3
 assign [class="Pcmanfm"] $workspace4
 
 # switch to workspace
@@ -244,11 +243,17 @@ bindsym XF86MonBrightnessDown exec xbacklight -5 && dunstify -t 800 -r 666 `xbac
 bindsym XF86MonBrightnessUp exec xbacklight +5 && dunstify -t 800 -r 666 `xbacklight -get | awk -F. '{print $1}'`
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id ponymix increase 5 --output
-bindsym XF86AudioLowerVolume exec --no-startup-id ponymix decrease 5 --output
-bindsym XF86AudioMute exec --no-startup-id ponymix toggle --output # mute sound
-bindsym XF86AudioMicMute exec --no-startup-id ponymix toggle --input # mute mic sound
+#bindsym XF86AudioRaiseVolume exec --no-startup-id ponymix -N increase 5 --output
+#bindsym XF86AudioLowerVolume exec --no-startup-id ponymix -N decrease 5 --output
+#bindsym XF86AudioMute exec --no-startup-id ponymix -N toggle --output # mute sound
+#bindsym XF86AudioMicMute exec --no-startup-id ponymix -N toggle --input # mute mic sound
 #
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # toggle mute sound
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle # toggle mute mic
+#
+
 # toggle workspace between two outputs
 bindsym $mod+x move workspace to output up
 

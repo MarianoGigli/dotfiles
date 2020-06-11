@@ -36,7 +36,7 @@ let mapleader = ","
 set t_Co=256
 set splitbelow
 set lazyredraw
-set number
+set number relativenumber
 
 " Encoding
 set encoding=utf-8
@@ -61,9 +61,9 @@ set nohlsearch
 set inccommand=split
 set nowrap
 
-set expandtab
 " set textwidth=80
 set colorcolumn=80 " Make it obvious where 80 characters is
+set expandtab
 set tabstop=8
 set softtabstop=4
 set shiftwidth=4
@@ -80,8 +80,6 @@ set nospell
 
 set laststatus=2
 set noshowmode
-
-set pastetoggle=<F4>
 
 " FINDING FILES:
 " Search down into subfolders
@@ -111,28 +109,7 @@ let g:netrw_browse_split = 0
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
-" KEY map:
-" map esc to ñ
-nnoremap ñ <Esc>
-vnoremap ñ <Esc>gV
-onoremap ñ <Esc>
-cnoremap ñ <C-C><Esc>
-inoremap ñ <Esc>`^
-
-" no arrows keys
-" noremap <Up> <Nop>
-" noremap <Down> <Nop>
-" noremap <Left> <Nop>
-" noremap <Right> <Nop>
-" inoremap <Up> <Nop>
-" inoremap <Down> <Nop>
-" inoremap <Left> <Nop>
-" inoremap <Right> <Nop>
-
 " tab navigation
-map tt :tabnew 
-map tn :tabn<CR>
-map tp :tabp<CR>
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <S-t> :tabnew<CR>
@@ -161,7 +138,6 @@ autocmd BufWritePre *.py :%s/\s\+$//e " StripTrailingWhitespaces
 
 " tab length exceptions on some file types
 autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4
-autocmd FileType htmldjango setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType json setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
