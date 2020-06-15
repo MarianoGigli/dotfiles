@@ -1,0 +1,36 @@
+#!/usr/bin/env sh
+
+# autostart
+$HOME/.config/bspwm/autostart
+
+# bspwm configuration
+
+bspc monitor eDP1 -d 1 2 3 4 5
+bspc monitor HDMI1 -d  6 7 8 9 0
+[ `xrandr -q | grep -w connected | grep -q HDMI1` ] && bspc monitor HDMI1 -d  6 7 8 9 0
+[ `xrandr -q | grep -w connected | grep -q HDMI2` ] && bspc monitor HDMI2 -d h6 h7 h8 h9 h0
+[ `xrandr -q | grep -w connected | grep -q DP1` ] && bspc monitor DP1 -d d6 d7 d8 d9 d0
+
+bspc config remove_unplugged_monitors true
+bspc config remove_disabled_monitors true
+bspc config merge_overlapping_monitors false
+
+bspc config focused_border_color \#009975
+bspc config border_width         3
+bspc config window_gap          10
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      false
+bspc config focus_follows_pointer true
+
+# bspwm rules
+# If refreshing bspwm, remove all previous rules to prevent doubling up.
+bspc rule -r "*"
+
+#bspc rule -a Kupfer.py focus=on
+#bspc rule -a Gimp desktop='^0' state=floating follow=on
+#bspc rule -a Firefox desktop='^1'
+bspc rule -a Screenkey manage=off
+bspc rule -a mpv state=floating
+bspc rule -a Gscreenshot state=floating
