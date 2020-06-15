@@ -1,0 +1,247 @@
+:==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+background = ${xrdb:polybar.background:#00000000}
+foreground = ${xrdb:polybar.foreground:#ff5555}
+
+[settings]
+screenchange-reload = true
+compositing-background = source
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; bar
+
+[bar/bar]
+monitor = ${env:MONITOR:}
+enable-ipc=true
+wm-restack = bspwm
+override-redirect = false
+tray-position = right
+
+scroll-up = bspwn-wsnext
+scroll-down = bspwn-wsprev
+cursor-click = pointer
+cursor-scroll = default
+height = 20
+padding = 0
+offset-x = 0
+offset-y = 10
+radius = 0.0
+background = ${colors.background}
+foreground = ${colors.foreground}
+font-0 = Roboto Mono:scale=1:style=Bold;1
+font-1 = Noto Color Emoji:scale=10:style=Regular;2
+font-2 = Font Awesome 5 Free Solid:scale=10:style=Solid;1
+
+module-padding = 0
+modules-left = bspwm
+modules-center = time
+modules-right = temperature wlan eth pulseaudio battery powermenu
+
+; modules
+[module/bspwm]
+type = internal/bspwm
+format = <label-state>
+format-padding = 1
+index-sort = true
+
+enable-click = true
+reverse-scroll = false
+
+label-focused = 
+label-focused-padding = 1
+
+label-occupied = 
+label-occupied-padding = 0
+
+;label-empty = []
+label-empty-padding = 0
+
+[module/time]
+type = internal/date
+time = "%H:%M"
+date = "%b %d"
+label = %date% %time%
+label-padding = 2
+
+[module/memory]
+type = internal/memory
+interval = 5
+format-padding = 1
+format-prefix = " "
+format-foreground = ${colors.foreground}
+label = %gb_used%
+
+[module/temperature]
+type = internal/temperature
+interval = 5
+thermal-zone = 0
+warn-temperature = 60
+
+format =  <ramp> <label>
+format-warn = <ramp> <label-warn>
+format-padding = 1
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-color1 = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+
+format-connected = %{A1:connman-gtk:} <label-connected>%{A}
+label-connected = %essid%
+label-connected-color1 = ${colors.foreground}
+
+format-disconnected =  <label-disconnected>
+label-disconnected = %ifname% disconnected
+label-disconnected-color1 = ${colors.foreground}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-color1 = ${colors.foreground}
+
+[module/eth]
+type = internal/network
+interface = enp0s31f6
+interval = 3.0
+
+format-connected-prefix = " "
+format-connected-prefix-color1 = ${colors.color1-alt}
+label-connected = %local_ip%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-color1 = ${colors.color1-alt}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume-padding = 1
+format-volume = <ramp-volume><label-volume>
+label-volume = %percentage:4:4%%
+use-ui-max = false
+interval = 5
+
+ramp-volume-0 = ""
+ramp-volume-1 = ""
+ramp-volume-2 = ""
+
+format-muted-padding = 1
+label-muted = " "
+label-muted-background = ${colors.background}
+label-muted-foreground = ${xrdb:color6:#fff}
+
+[module/battery]
+type = internal/battery
+
+time-format = %H:%M
+battery = BAT0
+adapter = AC
+
+full-at = 100
+format-full = <ramp-capacity> <label-full>
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${colors.foreground}
+label-charging = %percentage%%
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${colors.foreground}
+label-discharging = %percentage%%
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-foreground   = ${colors.foreground}
+ramp-capacity-0-foreground = #ff0000
+ramp-capacity-1-foreground = #ff5555
+ramp-capacity-2-foreground = #f2c335
+ramp-capacity-3-foreground = #24bf13
+ramp-capacity-4-foreground = #24bf13
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = false
+format-margin = 0
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+format-padding = 2
+
+label-open = 
+label-close = 
+label-separator = |
+
+; poweroff
+menu-0-0 = 
+menu-0-0-exec = sudo poweroff
+; reboot
+menu-0-1 = 
+menu-0-1-exec = sudo reboot
+; logout
+menu-0-2 = 
+menu-0-2-exec = bspc quit || i3-msg exit
+; lock
+menu-0-3 = 
+menu-0-3-exec = lock.sh
+

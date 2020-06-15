@@ -1,3 +1,5 @@
+config/.config/htop/*
+config/.config/autorandr/*
 config/.config/pulse/*
 config/.config/dconf/*
 config/.config/gtk-3.0/*
