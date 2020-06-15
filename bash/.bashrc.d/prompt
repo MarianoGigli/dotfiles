@@ -30,7 +30,7 @@ esac
 
 # Symbols
 user_symbol=""
-prompt_symbol="❯"
+prompt_symbol="❯ "
 prompt_clean_symbol="on "
 prompt_dirty_symbol="on "
 prompt_venv_symbol=" "

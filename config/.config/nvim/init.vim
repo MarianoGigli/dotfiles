@@ -8,6 +8,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Make sure you use single quotes
 Plug 'machakann/vim-highlightedyank'
 Plug 'vim-scripts/xoria256.vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-fugitive'

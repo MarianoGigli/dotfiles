@@ -1,0 +1,10 @@
+config/.config/pulse/*
+config/.config/dconf/*
+config/.config/gtk-3.0/*
+config/.config/libfm/*
+config/.config/mimeapps.list
+config/.config/nitrogen/*
+config/.config/nnn/*
+config/.config/nvim/.netrwhist
+config/.config/pavucontrol.ini
+config/.config/pcmanfm/*

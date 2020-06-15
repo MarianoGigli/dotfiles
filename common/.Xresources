@@ -1,9 +1,11 @@
+Xcursor.theme: "Breeze_Obsidian"
+
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! ------------------------------------------------------------------------------
 rofi.terminal: sakura
 rofi.color-enabled: true
-rofi.font: Source Code Pro Semi-Bold 18
+rofi.font: Roboto Mono Bold 14
 rofi.lines: 3
 rofi.eh: 2
 rofi.width: 100
@@ -20,81 +22,11 @@ rofi.color-normal: #0039ff, #4f80ff, #0039ff, #4f80ff, #ffffff
 rofi.color-active: #0039ff, #68ba50, #0039ff, #4f80ff, #68ba50
 rofi.color-urgent: #0039ff, #ff7047, #0039ff, #4f80ff, #ff7047
 
-! ------------------------------------------------------------------------------
-! XST configuration and Color theme
-! ------------------------------------------------------------------------------
-! These are all possible options, presented with default values.
-! xst will fallback to *.option if st.option is not present.
-! see src/config.h for more information about option meanings.
-
-! These options only take effect on startup.
-st.termname:     st-256color
-! if you do not set shell, precedence is: -e arg, utmp option, SHELL env var, /etc/passwd shell
-!st.shell:        /bin/sh
-
-! The following options options can be reloaded via USR1 signal.
-st.font: Roboto Mono for Powerline:style=bold:pixelsize=12:antialias=true:autohint=true
-st.borderpx: 2
-! Available cursor values: 2 4 6 7 = █ _ | ☃ ( 1 3 5 are blinking versions)
-st.cursorshape:       1
-! thickness of underline and bar cursors
-st.cursorthickness:   2
-! 0: normal blinking, 1: leave cursor border and blink with cursor`s background
-st.cursorblinkstyle:  0
-! 0: cursor blinks with a constant interval; 1: blinking cycle resets on key input
-st.cursorblinkontype: 0
-st.bold_font:         0
-st.xfps:              120
-st.actionfps:         30
-! Kerning / character bounding-box height multiplier
-st.chscale:           1.0
-! Kerning / character bounding-box width multiplier
-st.cwscale:           1.0
-! blinking timeout for terminal and cursor blinking (0 disables)
-st.blinktimeout:      600
-! bell volume. Value between -100 and 100. (0 disables)
-st.bellvolume:        0
-! this is a char that is exposed like so: `printf '\033[z'`
-st.prompt_char:       $
-
-! opacity==255 means what terminal will be not transparent, 0 - fully transparent
-st.opacity:      0
-
-! special
-*.foreground:   #c5c8c6
-*.background:   #1d1f21
-*.cursorColor:  #c5c8c6
-! black
-*.color0:       #1d1f21
-*.color8:       #969896
-! red
-*.color1:       #cc6666
-*.color9:       #cc6666
-! green
-*.color2:       #b5bd68
-*.color10:      #b5bd68
-! yellow
-*.color3:       #f0c674
-*.color11:      #f0c674
-! blue
-*.color4:       #81a2be
-*.color12:      #81a2be
-! magenta
-*.color5:       #b294bb
-*.color13:      #b294bb
-! cyan
-*.color6:       #8abeb7
-*.color14:      #8abeb7
-! white
-*.color7:       #c5c8c6
-*.color15:      #ffffff
-! extras
-*.color16:      #cda869
-*.color17:      #9b703f
-*.color18:      #323537
-*.color19:      #464b50
-*.color20:      #838184
-*.color21:      #c3c3c3
+! polybar base color
+polybar.background:    #00000000
+polybar.foreground:    #dddddd
+polybar.color0:        #000000
+polybar.color15:       #ff5555
 
 ! font configuration
 Xft.dpi: 112
