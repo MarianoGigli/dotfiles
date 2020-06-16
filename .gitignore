@@ -10,3 +10,4 @@ config/.config/nnn/*
 config/.config/nvim/.netrwhist
 config/.config/pavucontrol.ini
 config/.config/pcmanfm/*
+config/.config/sakura/*
