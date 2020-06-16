@@ -1,0 +1,15 @@
+[user]
+name = Mariano Gigli
+email = marianogigli@gmail.com
+[core]
+editor = nvim
+pager = less -r
+[color]
+branch = true
+diff = true
+interactive = true
+status = true
+ui = true
+showbranch = true
+[diff "sopsdiffer"]
+textconv = sops -d
