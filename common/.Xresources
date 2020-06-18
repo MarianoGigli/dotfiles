@@ -1,0 +1,41 @@
+Xcursor.theme: "Breeze_Obsidian"
+Xcursor.size: 32
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.terminal: sakura
+rofi.color-enabled: true
+rofi.font: Roboto Mono Bold 14
+rofi.lines: 3
+rofi.eh: 2
+rofi.width: 100
+rofi.padding: 200
+rofi.fullscreen: true
+rofi.bw: -1
+rofi.separator-style: none
+rofi.hide-scrollbar: false
+rofi.fake-transparency: true
+!                  'background', 'border', 'separator'
+rofi.color-window: argb:ee333333, #0039ff, #4F80FF
+! State:           'bg',    'fg',    'bgalt', 'hlbg', 'hlfg'
+rofi.color-normal: #0039ff, #4f80ff, #0039ff, #4f80ff, #ffffff
+rofi.color-active: #0039ff, #68ba50, #0039ff, #4f80ff, #68ba50
+rofi.color-urgent: #0039ff, #ff7047, #0039ff, #4f80ff, #ff7047
+
+! polybar base color
+polybar.background:    #00000000
+polybar.foreground:    #dddddd
+polybar.color0:        #000000
+polybar.color15:       #ff5555
+
+! font configuration
+Xft*dpi:                           112
+Xft*autohint:                      true
+Xft*hintstyle:                     hintslight
+Xft*lcdfilter:                     lcddefault
+Xft*embolden:                      false
+Xft*render:                        true
+Xft*hinting:                       true
+Xft*antialias:                     true
+Xft*rgba:                          rgba
