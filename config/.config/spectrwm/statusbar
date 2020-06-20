@@ -1,0 +1,123 @@
+#!/bin/bash
+
+### This script sets bar status!
+
+######################################################################### ICONS ####################################################################################
+
+# Battery
+iconsAc="⚡"
+iconsDc="🔋"
+iconsAc=""
+iconsDc=""
+
+# Volume
+iconsV=( "" "" "" )
+
+# Brightness
+iconsBright=( "🔆" "🔅" )
+
+# Memory
+MEM_ICON=''
+
+##################################################################################################################################################################
+
+while :; do
+
+##################################################################################################################################################################
+######################################################################### MEMORY #################################################################################
+
+    # Finding RAM usage
+    MEM=$(free -h | grep Mem | awk '{ print $3}')
+
+##################################################################################################################################################################
+######################################################################### BATTERY ################################################################################
+
+    # Battery percentage
+    BAT_PERC=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '/percentage/{print $2}' | tr -d %)
+
+    # Battery charging state
+    BAT_STATE=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | awk '/state/{print $2}')
+
+    # Charging icons
+    if [ $BAT_STATE = 'charging' ]; then
+        BAT_ICON=$iconsAc
+    # Discharging icons
+    else
+        BAT_ICON=$iconsDc
+    fi
+
+##################################################################################################################################################################
+######################################################################### VOLUME #################################################################################
+
+    # Master mute state
+    MUTE_STATE=$(pactl list sinks | awk '/Mute/ { print $2 }' | head -n1)
+
+    # Setting mute status
+    if [ $MUTE_STATE = 'yes' ]; then
+        VOL_ICON=' '
+        VOL='0%'
+
+    # Setting volume status
+    else
+        # Master volume
+        VOL=$(pactl list sinks | awk '/Volume/ { print $12 }' | tr -d %)
+        j=$((VOL/35))
+        VOL_ICON=${iconsV[$j]}
+        # Getting current volume with percent
+        VOL=$(pactl list sinks | awk '/Volume/ { print $12 }')
+    fi
+
+##################################################################################################################################################################
+######################################################################### NETWORK ################################################################################
+
+    # Wired connection
+    WIRED_STATE=$(connmanctl services | awk '/*AR/ { print $2 }')
+
+    # Wifi Connection
+    WIFI_STATE=$(connmanctl services | awk '/*AO/ { print $2 }')
+
+    # Getting wifi SSID
+    WIFI=$(iwgetid -r)
+
+    NET_ICON=""
+    # Wired connection status
+    if [ $WIRED_STATE ]; then
+        NET_ICON="$NET_ICON  "
+    fi
+
+    # Wifi status
+    if [ $WIFI_STATE ]; then
+        NET_ICON="$NET_ICON  $WIFI"
+    fi
+
+##################################################################################################################################################################
+######################################################################### BRIGHTNESS #############################################################################
+
+    # Value
+    BRI_PERC=$(xbacklight -get | cut -d. -f1)
+
+    # Icons
+    # For 100% brightness
+    if [ $BRI_PERC -eq 100 ]; then
+        BRI_ICON=${iconsBright[0]}
+
+    # For below 100%
+    else
+        k=$((BRI_PERC/25))
+        BRI_ICON=${iconsBright[1]}
+    fi
+
+##################################################################################################################################################################
+
+    # Print variables
+    #echo "+@bg=3; $MEM_ICON $MEM +@bg=0;   +@bg=2; $BAT_ICON $BAT_PERC% +@bg=0;   +@bg=8; $VOL_ICON $VOL +@bg=0;   +@bg=7; $BRI_ICON$BRI_PERC% +@bg=0;   +@bg=6; $NET_ICON"
+    echo "$VOL_ICON $VOL | $NET_ICON | $BAT_ICON $BAT_PERC%"
+
+    # Update interval
+    sleep 3
+
+done
+
+exit 0
+
+############################################################################ END #################################################################################
