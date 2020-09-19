@@ -9,7 +9,7 @@ redshift -m randr -PO 5000
 # init pulseaudio
 start-pulseaudio-x11 &
 # lock
-xautolock -time 10 -locker xtrlock &
+#xautolock -time 10 -locker xtrlock &
 
 # Start bspwm
 #exec /usr/bin/bspwm

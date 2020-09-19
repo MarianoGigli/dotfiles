@@ -9,7 +9,7 @@ export GPG_TTY
 
 export TERMINAL=sakura
 
-PATH=~/.local/bin:$PATH
+PATH=$HOME/.local/bin:$HOME/.poetry/bin:$PATH
 
 # Bash Settings
 PS1='[\u@\h \W]\$ '
@@ -19,7 +19,6 @@ export PROMPT_COMMAND='echo -ne "\033]0;$PWD\007"'
 # Bash variables
 export PAGER=less
 export EDITOR=nvim
-export PIPENV_VENV_IN_PROJECT=1
 export PYTHONIOENCODING=UTF-8
 
 #ls colors
