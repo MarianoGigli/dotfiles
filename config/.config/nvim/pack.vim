@@ -6,12 +6,9 @@ function! PackInit() abort
 
   " Additional plugins here.
     call minpac#add('machakann/vim-highlightedyank')
-    call minpac#add('vim-scripts/xoria256.vim')
     call minpac#add('arcticicestudio/nord-vim')
     call minpac#add('drewtempelmeyer/palenight.vim')
     call minpac#add('raimondi/delimitmate')
-    call minpac#add('tpope/vim-fugitive')
-    call minpac#add('ctrlpvim/ctrlp.vim')
     call minpac#add('itchyny/lightline.vim')
 endfunction
 

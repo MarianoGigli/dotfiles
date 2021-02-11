@@ -14,7 +14,6 @@ source $HOME/.config/nvim/settings.vim
 source $HOME/.config/nvim/themes-config/lightline.vim
 source $HOME/.config/nvim/themes-config/nord.vim
 " plugins configurations
-source $HOME/.config/nvim/plug-config/ctrlp.vim
-source $HOME/.config/nvim/plug-config/highlightedyank.vim
+source $HOME/.config/nvim/packages-config/highlightedyank.vim
 " key bindings
 source $HOME/.config/nvim/keys.vim
