@@ -2,7 +2,7 @@
 " To disable Python 2 support:
 let g:loaded_python_provider = 1
 " To disable Python 3 support:
-let g:loaded_python3_provider = 1
+"let g:loaded_python3_provider = 1
 " The last command reports the interpreter path. Add it to your init.vim: >
 let g:python3_host_prog = '/home/mariano/.virtualenvs/python3neovim/bin/python'
 

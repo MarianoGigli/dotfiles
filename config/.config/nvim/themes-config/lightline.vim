@@ -2,11 +2,10 @@ let g:lightline = {
     \ 'colorscheme': 'nord',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'fugitive', 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
     \ },
     \ 'component_function': {
-    \   'gitbranch': 'fugitive#head',
-    \   'cocstatus': 'coc#status'
+    \   'gitbranch': 'gitbranch#name'
     \ },
 \ }
 
