@@ -36,3 +36,8 @@ n ()
             rm -f "$NNN_TMPFILE" > /dev/null
     fi
 }
+
+cht ()
+{
+    curl cht.sh/${@} -s
+}
