@@ -5,8 +5,6 @@
 GPG_TTY=$(tty)
 export GPG_TTY
 
-#export TERMINAL=alacritty
-
 LOCALBIN=$HOME/.local/bin
 POETRYBIN=$HOME/.poetry/bin
 export GOPATH=$HOME/go
@@ -29,3 +27,5 @@ eval "$(dircolors /etc/colors/DIR_COLORS)"
 [[ -f "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases"
 
 eval "$(starship init bash)"
+
+complete -C /home/mariano/go/bin/gocomplete go

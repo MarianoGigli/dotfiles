@@ -32,3 +32,6 @@ nnoremap <silent> <M-RIGHT> <c-w>10>
 nnoremap <silent> <M-LEFT> <c-w>10<
 nnoremap <silent> <M-UP> <c-w>10+
 nnoremap <silent> <M-DOWN> <c-w>10-
+
+" completion
+inoremap <C-Space> <C-X><C-O>
