@@ -55,6 +55,7 @@ set relativenumber                       " Relative line numbers
 
 set showtabline=2                        " Always show tabs
 set shortmess+=c                         " Don't pass messages to |ins-completion-menu|.
+set completeopt-=preview                 " Don't show completion info on preview window
 set signcolumn=yes                       " Always show the signcolumn, otherwise it would shift the text each time
 set updatetime=300                       " Faster completion
 set timeoutlen=100                       " By default timeoutlen is 1000 ms
