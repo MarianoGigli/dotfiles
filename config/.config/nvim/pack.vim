@@ -5,11 +5,9 @@ function! PackInit() abort
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
   " Additional plugins here.
-    call minpac#add('machakann/vim-highlightedyank')
     call minpac#add('arcticicestudio/nord-vim', {'type': 'opt'})
+    call minpac#add('machakann/vim-highlightedyank')
     call minpac#add('raimondi/delimitmate')
-    call minpac#add('itchyny/lightline.vim')
-    call minpac#add('itchyny/vim-gitbranch')
     call minpac#add('fatih/vim-go', { 'do': ':GoUpdateBinaries' })
 endfunction
 

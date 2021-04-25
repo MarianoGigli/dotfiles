@@ -73,6 +73,7 @@ let g:netrw_winsize = 30                 " File explorer window size
 let g:netrw_alto = 1                     " Change from above splitting to below splitting
 let g:netrw_altv = 1                     " change from left splitting to right splitting
 
+
 " VIM-GO CONFIG
 let g:go_rename_command = 'gopls'
 let g:go_fmt_fail_silently = 0
@@ -92,10 +93,5 @@ let g:go_highlight_diagnostic_warnings = 1
 let g:go_auto_type_info = 1
 let g:go_auto_sameids = 0
 
-
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" You can't stop me
-cmap w!! w !sudo tee %
-
 
