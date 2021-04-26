@@ -5,7 +5,6 @@ filetype indent on
 " Leader
 let mapleader = ","
 
-set iskeyword+=-                         " treat dash separated words as a word text object"
 set formatoptions-=cro                   " Stop newline continution of comments
 
 set encoding=utf-8                       " The encoding displayed
@@ -18,8 +17,6 @@ set nobackup                             " This is recommended by coc
 set nowritebackup                        " This is recommended by coc
 set noshowmode                           " We don't need to see things like -- INSERT -- anymore
 set nowrap                               " Display long lines as just one line
-set splitbelow                           " Horizontal splits will automatically be below
-set splitright                           " Vertical splits will automatically be to the right
 set laststatus=2                         " Always display the status line
 set cmdheight=1                          " More space for displaying messages
 set showcmd                              " Show command turn of if is slow
@@ -41,7 +38,6 @@ set termguicolors                        " Enable true colors
 set background=dark                      " tell vim what the background color looks like
 set conceallevel=0                       " So that I can see `` in markdown files
 
-set autoindent smartindent
 set tabstop=4                            " Insert 4 spaces for a tab
 set shiftwidth=4                         " Change the number of space characters inserted for indentation
 set softtabstop=4                        " Number of spaces that a <Tab> counts for while performing editing operations
@@ -72,26 +68,4 @@ let g:netrw_liststyle = 3                " File explorer tree display format
 let g:netrw_winsize = 30                 " File explorer window size
 let g:netrw_alto = 1                     " Change from above splitting to below splitting
 let g:netrw_altv = 1                     " change from left splitting to right splitting
-
-
-" VIM-GO CONFIG
-let g:go_rename_command = 'gopls'
-let g:go_fmt_fail_silently = 0
-let g:go_imports_autosave = 1
-let g:go_doc_popup_window = 1
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_variable_declarations = 1
-let g:go_highlight_variable_assignments = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_diagnostic_errors = 1
-let g:go_highlight_diagnostic_warnings = 1
-let g:go_auto_type_info = 1
-let g:go_auto_sameids = 0
-
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 

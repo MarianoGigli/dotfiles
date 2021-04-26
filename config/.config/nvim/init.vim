@@ -18,4 +18,6 @@ source $HOME/.config/nvim/themes-config/nord.vim
 source $HOME/.config/nvim/packages-config/highlightedyank.vim
 " key bindings
 source $HOME/.config/nvim/keys.vim
+" go lang
+source $HOME/.config/nvim/go.vim
 
