@@ -5,10 +5,10 @@ function! PackInit() abort
   call minpac#add('k-takata/minpac', {'type': 'opt'})
 
   " Additional plugins here.
-    call minpac#add('arcticicestudio/nord-vim', {'type': 'opt'})
-    call minpac#add('machakann/vim-highlightedyank')
-    call minpac#add('raimondi/delimitmate')
-    call minpac#add('fatih/vim-go', { 'do': ':GoUpdateBinaries' })
+  call minpac#add('arcticicestudio/nord-vim', {'type': 'opt'})
+  call minpac#add('machakann/vim-highlightedyank')
+  call minpac#add('raimondi/delimitmate')
+  call minpac#add('fatih/vim-go', { 'do': ':GoUpdateBinaries' })
 endfunction
 
 " Plugin settings here.
@@ -19,4 +19,4 @@ endfunction
 " the information of plugins, then performs the task.
 command! PackUpdate source $MYVIMRC | call PackInit() | call minpac#update()
 command! PackClean  source $MYVIMRC | call PackInit() | call minpac#clean()
-command! PackStatus packadd minpac | call minpac#status()
+command! PackStatus source $MYVIMRC | call PackInit() | call minpac#status()
