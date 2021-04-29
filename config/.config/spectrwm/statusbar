@@ -39,8 +39,8 @@ while :; do
     if [[ $BAT_PERC -lt 5 && $BAT_STATE = 'discharging' ]]; then
         notify-send -u critical -a "Battery Low" "Plug the AC"
     fi
-    if [[ $BAT_PERC -gt 99  && $BAT_STATE = 'charging' ]]; then
-        notify-send -u normal -a "Battery Charged" "Unplug the AC"
+    if [[ $BAT_PERC -gt 99  && $BAT_STATE = 'charging' || $BAT_STATE = 'fully-charged' ]]; then
+        notify-send -u low -a "Battery Charged" "Unplug the AC"
     fi
 
     # Charging icons
