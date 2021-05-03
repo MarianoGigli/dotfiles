@@ -9,7 +9,7 @@ set statusline+=%{&paste?'\ \ PASTE\ ':''}
 set statusline+=%#CursorLine#
 set statusline+=\ %t\                   " short file name
 set statusline+=%#CursorIM#
-set statusline+=%R\                     " readonly flag
+set statusline+=\ %R\                     " readonly flag
 set statusline+=%m\                     " modified [+] flag
 set statusline+=%=                      " right align
 set statusline+=%#CursorLine#
