@@ -1,10 +1,15 @@
 ### Dotfiles
-Personal dotfiles meant to be used with stow to install all of them.
-#### Instalation
-Run stow with dry run and verbose options
-Review the output to ensure that everything will work as expected.
-* `$ stow -nvv <dir-name>`
+Personal dotfiles with the current configuration files for my window manager, bash, nvim, vim, terminal emulator and some extra common configs.  
+The repo that can be cloned and setup following the instruction bellow.
 
-* `$ stow -v <dir-name>`
-This command will install the package (create symblink for every file inside the given package)
-For more information and usage options read `$ man stow` and visit the website [GNU stow](https://www.gnu.org/software/stow/)
+#### Dependencies
+You must have [__make__](https://www.gnu.org/software/make/) and [__stow__](https://www.gnu.org/software/stow/) installed.
+
+#### Usage
+`make <<target>>`  
+
+Targets:  
+  - __help__   Show this help.  
+  - __check__  run stow in dry run mode to validate actions.  
+  - __create__ create symlinks using stow.  
+  - __update__ delete and create symlinks using stow.  
